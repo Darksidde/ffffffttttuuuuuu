@@ -16,7 +16,7 @@ pipeline {
         stage('Process TestNG Reports and Jira Integration') {
             steps {
                 script {
-                    def testngReportsPath = 'src/test-output' // TestNG raporlarının bulunduğu klasör/dizin
+                    def testngReportsPath = 'test-output' // TestNG raporlarının bulunduğu klasör/dizin
                     
                     // TestNG raporlarını okuma ve istediğiniz bilgileri alarak Jira'ya gönderme işlemleri
                     def testResults = readFile "${testngReportsPath}/testng-results.xml" // Örnek olarak testNG raporu okundu
