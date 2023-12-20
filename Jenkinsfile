@@ -1,9 +1,8 @@
 pipeline {
     agent any
 
-     tools {
-        // Jenkins arayüzünden tanımlı olan Maven'ın adını kullanarak tanımlama yapın
-        maven 'Maven' // Bu kısımı kendi Maven yüklemenize göre değiştirmelisiniz
+    tools {
+        maven 'Maven' // Maven yüklemesinin adı burada belirtilmelidir
     }
 
     stages {
@@ -21,14 +20,14 @@ pipeline {
                     // TestNG raporlarını okuma ve istediğiniz bilgileri alarak Jira'ya gönderme işlemleri
                     def testResults = readFile "${testngReportsPath}/testng-results.xml" // Örnek olarak testNG raporu okundu
                     
-                    def jiraURL = 'https://darksiddee.atlassian.net/jira/software/projects/KAN/boards/1'
+                    def jiraURL = 'https://darksiddee.atlassian.net/rest/api/2/issue'
                     def auth = 'Basic ' + "${env.darksiddee}:${env.ATATT3xFfGF059OzB6Z5Jkh4FzMvs3Vp7FvSXUlvBU5zaYcY0omUw1MUwNfOpwKEedWbdUL28_4uSuqbeBmBENmFS9yePh22UoL6QGf3C2cHtPEs6Mv4UoyGgaCGyqHAAV84ZjY_4Sv6CSW0ZIi3CvZomnuhdfBxXJtHnmhEvn36fcEmV5bYDUc=1F051CFE}".bytes.encodeBase64().toString()
                     
                     def requestBody = '''
                         {
                             "fields": {
-                                "project": Kanban Projem {
-                                    "key": "Amazon"
+                                "project": {
+                                    "key": "KAN"
                                 },
                                 "summary": "TestNG Test Results",
                                 "description": "${testResults}",
