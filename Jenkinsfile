@@ -16,7 +16,7 @@ pipeline {
         }
          stage('Process TestNG Reports and Write Comment in JIRA') {
             steps {
-                jiraUploadAttachment file: 'test-output/testng-results.xml', idOrKey: 'KAN-7: Heheyt', site: 'Jira'
+                jiraUploadAttachment file: 'test-output/index.html', idOrKey: 'KAN-7: Heheyt', site: 'Jira'
 
                     
                     
