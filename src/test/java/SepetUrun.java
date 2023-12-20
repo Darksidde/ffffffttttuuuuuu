@@ -64,7 +64,7 @@ public class SepetUrun {
         WebDriverWait dc = new WebDriverWait(cdriver, Duration.ofSeconds(2));
 
 
-        WebElement XboxKol = cdriver.findElement(By.linkText("Xbox Wrls.(Gen9) Cntrllr Indas"));
+        WebElement XboxKol = cdriver.findElement(By.cssSelector("div[id='B093X64R9H'] a[role='link'] div[class='_cDEzb_p13n-sc-css-line-clamp-1_1Fn1y']"));
         XboxKol.click();
         WebDriverWait cdd = new WebDriverWait(cdriver, Duration.ofSeconds(2));
 
