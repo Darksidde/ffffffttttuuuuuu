@@ -16,11 +16,9 @@ pipeline {
         }
          stage('Process TestNG Reports and Write Comment in JIRA') {
             steps {
-                script {
-                    def testngReportsPath = 'test-output'
-                    def testResults = readFile "${testngReportsPath}/testng-results.xml"
+                jiraUploadAttachment file: 'test-output/testng-results.xml', idOrKey: 'Heheyt', site: 'Jira'
+
                     
-              jiraComment body: 'testResults', issueKey: 'Heheyt'
                     
 
                 }
