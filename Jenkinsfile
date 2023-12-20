@@ -20,21 +20,9 @@ pipeline {
                     def testngReportsPath = 'test-output'
                     def testResults = readFile "${testngReportsPath}/testng-results.xml"
                     
-                    def jiraIssue = [
-                        issueUpdates: [
-                            [
-                                update: [
-                                    summary: ["set": "TestNG Test Results"],
-                                    description: ["set": testResults]
-                                ]
-                            ]
-                        ]
-                    ]
+              jiraComment body: 'testResults', issueKey: 'Heheyt'
                     
-                    def issue = jiraEditIssue idOrKey: 'Heheyt', issueUpdates: jiraIssue
-                    
-                    echo "JIRA response status: ${issue.status}"
-                    echo "JIRA response content: ${issue.data}"
+
                 }
             }
         }
