@@ -14,7 +14,7 @@ pipeline {
                 }
             }
         }
-         stage('Process TestNG Reports and Jira Integration') {
+         stage('Process TestNG Reports and Write Comment in JIRA') {
             steps {
                 script {
                     def testngReportsPath = 'test-output'
