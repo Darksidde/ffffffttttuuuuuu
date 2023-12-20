@@ -41,7 +41,7 @@ public class SepetUrun {
     }
 
 
-    @Test
+   @Test
     void test01() throws InterruptedException {
 
 
@@ -64,8 +64,13 @@ public class SepetUrun {
         WebDriverWait dc = new WebDriverWait(cdriver, Duration.ofSeconds(2));
 
 
-        WebElement XboxKol = cdriver.findElement(By.cssSelector("div[id='B093X64R9H'] a[role='link'] div[class='_cDEzb_p13n-sc-css-line-clamp-1_1Fn1y']"));
+        WebElement XboxKol = cdriver.findElement(By.linkText("Xbox Wrls.(Gen9) Cntrllr Indas"));
+        WebDriverWait grr = new WebDriverWait(cdriver, Duration.ofSeconds(1));
+        WebElement Accept = cdriver.findElement(By.id("sp-cc-accept"));
+        Accept.click();
+        WebDriverWait ge = new WebDriverWait(cdriver, Duration.ofSeconds(1));
         XboxKol.click();
+
         WebDriverWait cdd = new WebDriverWait(cdriver, Duration.ofSeconds(2));
 
         WebElement selectElement = cdriver.findElement(By.id("quantity")); // veya diğer bir seçici ile
